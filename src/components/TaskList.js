@@ -49,7 +49,7 @@ export default function TaskList() {
             <Text w="100%" p="8px" borderRadius="lg">
               {todo.text}
             </Text>
-            <DeleteTask />
+            <DeleteTask id={todo.id} />
           </HStack>
         ))}
       </VStack>
