@@ -3,16 +3,13 @@ import { FiTrash2 } from 'react-icons/fi';
 import supabase from '../supabase';
 import { useState } from 'react';
 
-export default function DeleteTask(props) {
+export default function DeleteTask({ id }) {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
 
   async function handleDelete() {
     setLoading(true);
-    const { data, error } = await supabase
-      .from('todos')
-      .delete()
-      .eq('id', props.id);
+    const { data, error } = await supabase.from('todos').delete().eq('id', id);
     setLoading(false);
 
     toast({

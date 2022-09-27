@@ -11,8 +11,11 @@ import DeleteTask from './DeleteTask';
 import img from '../images/empty.svg';
 import supabase from '../supabase';
 import { useEffect, useState } from 'react';
+import { useRealtime } from 'react-supabase';
 
 export default function TaskList() {
+  // const [{ data: todos, error, fetching }, reexecute] = useRealtime('todos');
+
   const [todos, setTodos] = useState([]);
 
   async function fetchData() {
