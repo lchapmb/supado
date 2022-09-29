@@ -15,6 +15,7 @@ export default function AddTask() {
     const { data, error } = await supabase.from('todos').insert([{ text }]);
 
     setLoading(false);
+    setText('');
 
     toast({
       title: error || 'Todo added!',
@@ -34,6 +35,8 @@ export default function AddTask() {
           placeholder="Do the washing"
           value={text}
           onChange={e => setText(e.target.value)}
+          disabled={loading}
+          required
         />
         <Button
           colorScheme="blue"
